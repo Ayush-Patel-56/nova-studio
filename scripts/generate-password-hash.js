@@ -4,7 +4,12 @@ if (!password) {
   console.error('Usage: node scripts/generate-password-hash.js <password>')
   process.exit(1)
 }
-bcrypt.hash(password, 10).then(hash => {
-  console.log('\nPaste this into ADMIN_PASSWORD in .env.local:\n')
-  console.log(hash)
-})
+bcrypt.hash(password, 10)
+  .then(hash => {
+    console.log('\nPaste this into ADMIN_PASSWORD in .env.local:\n')
+    console.log(hash)
+  })
+  .catch(err => {
+    console.error('Failed to hash password:', err.message)
+    process.exit(1)
+  })
