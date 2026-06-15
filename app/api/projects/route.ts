@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { auth } from '@/lib/auth'
-import { supabase, supabaseAdmin } from '@/lib/supabase'
+import { getSupabase, getSupabaseAdmin } from '@/lib/supabase'
 import { uploadToGCS } from '@/lib/gcs'
 import { projectSchema } from '@/lib/validations'
 
 export async function GET() {
-  const { data, error } = await supabase
+  const { data, error } = await getSupabase()
     .from('projects')
     .select('*')
     .order('created_at', { ascending: false })
@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
   const buffer   = Buffer.from(await file.arrayBuffer())
   const imageUrl = await uploadToGCS(buffer, file.type)
 
-  const { data, error } = await supabaseAdmin
+  const { data, error } = await getSupabaseAdmin()
     .from('projects')
     .insert({ title, category, image_url: imageUrl })
     .select()

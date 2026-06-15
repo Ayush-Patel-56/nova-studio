@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { supabaseAdmin } from '@/lib/supabase'
+import { getSupabaseAdmin } from '@/lib/supabase'
 import { connectMongoDB, AnalyticsEvent } from '@/lib/mongodb'
 import { contactSchema } from '@/lib/validations'
 
@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
 
   const { name, email, message } = parsed.data
 
-  const { error } = await supabaseAdmin
+  const { error } = await getSupabaseAdmin()
     .from('contacts')
     .insert({ name, email, message })
 

@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabase'
+import { getSupabase } from '@/lib/supabase'
 import Hero from '@/components/sections/Hero'
 import Services from '@/components/sections/Services'
 import Portfolio from '@/components/sections/Portfolio'
@@ -8,9 +8,9 @@ import Footer from '@/components/sections/Footer'
 
 async function getData() {
   const [servicesRes, projectsRes, statsRes] = await Promise.all([
-    supabase.from('services').select('*'),
-    supabase.from('projects').select('*').order('created_at', { ascending: false }),
-    supabase.from('stats').select('*'),
+    getSupabase().from('services').select('*'),
+    getSupabase().from('projects').select('*').order('created_at', { ascending: false }),
+    getSupabase().from('stats').select('*'),
   ])
   return {
     services: servicesRes.data ?? [],

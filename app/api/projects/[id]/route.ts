@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { auth } from '@/lib/auth'
-import { supabaseAdmin } from '@/lib/supabase'
+import { getSupabaseAdmin } from '@/lib/supabase'
 
 export async function DELETE(
   _req: NextRequest,
@@ -11,7 +11,7 @@ export async function DELETE(
 
   const { id } = await params
 
-  const { error } = await supabaseAdmin
+  const { error } = await getSupabaseAdmin()
     .from('projects')
     .delete()
     .eq('id', id)
