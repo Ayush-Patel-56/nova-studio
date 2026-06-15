@@ -17,7 +17,7 @@ export default function Services({ services }: { services: Service[] }) {
         </Typography>
         <Grid container spacing={4}>
           {services.map((s) => (
-            <Grid item xs={12} md={4} key={s.id}>
+            <Grid size={{ xs: 12, md: 4 }} key={s.id}>
               <ServiceCard service={s} />
             </Grid>
           ))}

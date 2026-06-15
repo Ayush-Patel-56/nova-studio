@@ -53,7 +53,7 @@ export default function Navbar() {
         anchor="right"
         open={open}
         onClose={() => setOpen(false)}
-        PaperProps={{ sx: { bgcolor: '#0F0F0F', width: 220 } }}
+        slotProps={{ paper: { sx: { bgcolor: '#0F0F0F', width: 220 } } }}
       >
         <List sx={{ pt: 8 }}>
           {links.map((link) => (
