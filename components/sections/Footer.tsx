@@ -12,9 +12,8 @@ export default function Footer() {
       <Container maxWidth="lg">
         <Stack
           direction={{ xs: 'column', md: 'row' }}
-          justifyContent="space-between"
-          alignItems={{ md: 'center' }}
           spacing={3}
+          sx={{ justifyContent: 'space-between', alignItems: { md: 'center' } }}
         >
           <Typography variant="h6" sx={{ color: '#fff', fontWeight: 600 }}>
             Nova Studio
