@@ -1,6 +1,6 @@
 # Nova Studio
 
-Digital agency platform — web design, front-end development, and branding for modern businesses.
+Digital agency platform - web design, front-end development, and branding for modern businesses.
 
 ## Setup
 
@@ -46,6 +46,6 @@ Go to `/admin/login`. Credentials are set via `ADMIN_USERNAME` and `ADMIN_PASSWO
 - **App Router server components** handle data fetching for the landing page (SSR on every request)
 - **MongoDB Atlas** is used only for append-only analytics events and contact logs
 - **Supabase** handles all structured data (projects, contacts, stats, services)
-- **Google Cloud Storage** serves project images — avoids Vercel's read-only filesystem
-- **No animation libraries** — scroll animations use the Intersection Observer API, count-up is a custom hook
+- **Google Cloud Storage** serves project images - avoids Vercel's read-only filesystem
+- **No animation libraries** - scroll animations use the Intersection Observer API, count-up is a custom hook
 - **next-auth v5** is used instead of v4 because this project runs Next.js 16 + React 19
